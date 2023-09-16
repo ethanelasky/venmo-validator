@@ -1,0 +1,116 @@
+/* General Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;   /* Updated */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    flex: 1;   /* Updated: Makes sure the content fills the available space */
+}
+
+/* Form Styles */
+form .form-group {
+    margin-bottom: 20px;
+}
+
+form textarea {
+    height: 100px;
+}
+
+form .btn {
+    background-color: #007bff;
+    color: #fff;
+    margin-top: 10px;   /* Updated: Added some spacing */
+}
+
+form .btn:hover {
+    background-color: #0056b3;
+}
+
+
+/* Header Styles */
+header {
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Table Styles */
+
+table {
+    max-width: 100%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+table th {
+    background-color: #007bff; 
+    color: white;
+}
+
+/* Alternate Row Colors */
+table tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+table tr:nth-child(even) {
+    background-color: #e8f3ff;
+}
+
+/* Handle Styles */
+td.handle {
+    font-size: 18px;
+}
+
+/* Image Styles */
+td img.profile-image {
+    width: 40px;   
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%; 
+}
+
+/* Emoji Styles */
+td.emoji {
+    font-size: 18px;
+}
+
+/* Color-coded Emojis */
+td.emoji.valid {
+    color: green;
+}
+
+td.emoji.invalid {
+    color: red;
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #f8f8f8;
+    border-top: 1px solid #e7e7e7;
+    width: 100%;
+    max-width: 1140px;   /* Updated: Match Bootstrap's container width */
+    margin: auto;
+}

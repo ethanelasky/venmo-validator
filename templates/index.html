@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Venmo Handles</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2 class="mb-4">Check Venmo Handles</h2>
+    <form action="/" method="post">
+        <div class="form-group">
+            <label for="handles">Venmo Handles:</label>
+            <textarea name="handles" class="form-control" placeholder="Enter Venmo handles separated by commas" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Check</button>
+    </form>
+</div>
+
+{% if results %}
+<table class="results-table">
+    <thead>
+        <tr>
+            <th>Handle</th>
+            <th>Name</th>
+            <th>Image</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for result in results %}
+        <tr>
+            <td class="handle">{{ result.handle }}</td>
+            <td>{{ result.name if result.valid else '' }}</td>
+            <td>
+                {% if result.valid %}
+                <img src="{{ result.img }}" alt="{{ result.name }}" class="profile-image">
+                {% endif %}
+            </td>
+            <td class="emoji">{{ '✅' if result.valid else '❌' }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+
+</body>
+</html>
+
+<footer class="mt-5">
+    <p>Developed by Ethan Elasky © 2023. Source on <a href="https://github.com/ethanelasky/venmo-validator" target="_blank">GitHub</a>.</p>
+</footer>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Handle</th>
+                <th>Name</th>
+                <th>Image</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for result in results %}
+            <tr>
+                <td class="handle">{{ result.handle }}</td>
+                <td>{{ result.name if result.valid else '' }}</td>
+                <td>
+                    {% if result.valid %}
+                    <img src="{{ result.img }}" alt="{{ result.name }}" class="profile-image">
+                    {% endif %}
+                </td>
+                <td class="emoji">{{ '✅' if result.valid else '❌' }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
